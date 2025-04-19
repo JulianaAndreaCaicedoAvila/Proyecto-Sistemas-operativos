@@ -1,4 +1,4 @@
-package Back;
+package Back.HILOS;
 import java.util.List;
 /*Es una clase para sumar la lista de egresos que digite la persona
  * Implementa Runnable para poder manejar el paralelismo, es una interfaz funcional (es similar a Theread, pero es mas fácil de manejar)

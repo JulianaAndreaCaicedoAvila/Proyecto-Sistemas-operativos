@@ -1,4 +1,4 @@
-package Back;
+package Back.HILOS;
 
 /*Se crea una clase abtrata para manejar el tipo de 
  * movimiento que se vaya a realizar: puede ser "ingreso" o "egreso"

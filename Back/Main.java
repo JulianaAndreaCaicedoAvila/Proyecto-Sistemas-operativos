@@ -2,6 +2,11 @@ package Back;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+//Importa las clases de los hilos
+import Back.HILOS.CalculadorEgresos;
+import Back.HILOS.CalculadorIngresos;
+import Back.HILOS.Egreso;
+import Back.HILOS.Ingreso;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
