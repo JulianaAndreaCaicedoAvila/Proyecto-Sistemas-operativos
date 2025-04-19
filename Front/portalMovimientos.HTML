@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago - Tienda de Ropa</title>
+    <title>Portal de movimientos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="styles.css">
@@ -37,27 +37,30 @@
 
             <label for="card-holder">Descripción:</label>
             <input type="text" id="card-holder" name="card-holder" required>
-
             <label for="card-number">Valor: </label>
-            <input type="int" id="card-number" name="card-number" maxlength="16" required>
+            <input type="double" id="card-number" name="card-number" maxlength="16" required>
+            <button type="submit" class="pay-btn">Subir </button>
 
 
             <h1> Egreso número: #   </h1>
 
             <label for="card-holder">Descripción:</label>
             <input type="text" id="card-holder" name="card-holder" required>
-
             <label for="card-number">Valor: </label>
             <input type="int" id="card-number" name="card-number" maxlength="16" required>
+            <button type="submit" class="pay-btn">Subir </button>
+
 
         </div>
         <div class="order-summary">
             <h3>Resumen de movientos</h3>
             <div class="order-item">
+                <span>Digitados: # </span>
                 <span>Ingresos </span>
                 <span>$100.00</span>
             </div>
             <div class="order-item">
+                <span>Digitados: # </span>
                 <span>Egresos</span>
                 <span>$50.00</span>
             </div>
@@ -72,7 +75,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Artemisa</p>
+        <p>&copy; 2025 Juliana Caicedo y Nicolas Fonseca</p>
     </footer>
 
     
