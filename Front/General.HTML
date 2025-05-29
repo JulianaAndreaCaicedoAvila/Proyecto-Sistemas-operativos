@@ -1,0 +1,304 @@
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Artemisa</h1>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+        </div>
+        <nav>
+            <a href="perfil.html">Perfil</a>
+            <a href="portalMovimientos.HTML">Registro Movimientos</a>
+            <button onclick="showForm('login')">Inicio de Sesión</button>
+            <button onclick="showForm('register')">Registro</button>
+        </nav>
+    </header>
+
+    <!-- Sección de información del proyecto -->
+  <section class="container mt-4 mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center">
+                <!-- Carrusel de imágenes Bootstrap -->
+                <div id="carouselProyecto" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselProyecto" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselProyecto" data-slide-to="1"></li>
+                    <li data-target="#carouselProyecto" data-slide-to="2"></li>
+                                  
+</ol>
+                  <div class="carousel-inner rounded shadow">
+                    <div class="carousel-item active">
+                      <img class="d-block w-100" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Primera imagen">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Segunda imagen">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Tercera imagen">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselProyecto" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselProyecto" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                  </a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h2>¿Por qué Artemisa?</h2>
+                <p>
+                    Artemisa nace como una solución para ayudar a las personas a gestionar sus finanzas personales de manera sencilla y eficiente. 
+                    Nuestro objetivo es brindar herramientas claras para el control de ingresos, egresos, deudas y abonos, permitiendo así una mejor toma de decisiones financieras.
+                </p>
+                <p>
+                    Este proyecto fue desarrollado como parte de la materia de Sistemas Operativos, integrando conocimientos de desarrollo web, backend y gestión de datos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ...existing code... -->
+<main>
+    <!-- Grilla de componentes financieros con botones -->
+    <div class="container mt-4">
+        <div class="row text-center">
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalIngresos">
+                    Total de ingresos
+                </button>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#modalEgresos">
+                    Total de egresos
+                </button>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalDeudas">
+                    Deudas
+                </button>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-info btn-block" data-toggle="modal" data-target="#modalAbonos">
+                    Abonos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modales para mostrar información general -->
+    <!-- Modal Ingresos -->
+    <div class="modal fade" id="modalIngresos" tabindex="-1" role="dialog" aria-labelledby="modalIngresosLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalIngresosLabel">Total de ingresos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="total-ingresos-info">Aquí irá la información general de ingresos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Egresos -->
+    <div class="modal fade" id="modalEgresos" tabindex="-1" role="dialog" aria-labelledby="modalEgresosLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalEgresosLabel">Total de egresos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="total-egresos-info">Aquí irá la información general de egresos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Deudas -->
+    <div class="modal fade" id="modalDeudas" tabindex="-1" role="dialog" aria-labelledby="modalDeudasLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDeudasLabel">Deudas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="deudas-info">Aquí irá la información general de deudas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Abonos -->
+    <div class="modal fade" id="modalAbonos" tabindex="-1" role="dialog" aria-labelledby="modalAbonosLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAbonosLabel">Abonos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="abonos-info">Aquí irá la información general de abonos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ...resto del contenido... -->
+<!-- ...existing code... -->
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        // Consultar usuario por nombre
+        document.getElementById('consultarBtn').addEventListener('click', function() {
+            const username = document.getElementById('usuario').value;
+            
+            fetch(`http://localhost:3000/api/usuarios/usuarios/${username}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Datos del usuario:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        // Mostrar el formulario de login o registro según el parámetro
+        function showForm(formType) {
+            const formContainer = document.getElementById("form-container");
+            const loginForm = document.getElementById("login-form");
+            const registerForm = document.getElementById("register-form");
+
+            formContainer.style.display = "block";
+
+            if (formType === "login") {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+            } else if (formType === "register") {
+                registerForm.style.display = "block";
+                loginForm.style.display = "none";
+            }
+        }
+
+        // Cerrar el formulario
+        function closeForm() {
+            document.getElementById("form-container").style.display = "none";
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("register-form").style.display = "none";
+        }
+// Iniciar sesión
+
+document.getElementById('InicioSesion').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    const usuario = document.getElementById("usuario").value;
+    const password = document.getElementById("contraseña").value;
+
+    const loginData = {
+        usuario: usuario,
+        password: password
+    };
+
+    // Enviamos los datos al backend
+    fetch('http://localhost:3000/api/usuarios/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // Aseguramos que sea JSON
+        },
+        body: JSON.stringify(loginData), // Convertimos los datos en JSON
+    })
+    .then(response => {
+        // Verificamos si la respuesta es correcta (código 2xx)
+        if (!response.ok) {
+            return response.text().then(text => { throw new Error(`Error ${response.status}: ${text}`) });
+        }
+        return response.json(); // Si la respuesta es exitosa, la convertimos a JSON
+    })
+    .then(data => {
+        // Aquí procesamos la respuesta del backend
+        if (data.message === 'Inicio de sesión exitoso') {
+            alert('Inicio de sesión exitoso');
+            // Redirige al usuario a otra página o realiza otras acciones
+        } else {
+            alert(data.error || 'Error desconocido');
+        }
+    })
+    .catch(error => {
+        // Manejo de errores
+        console.error('Error:', error);
+        alert(`Hubo un error: ${error.message}`);
+    });
+});
+
+
+// Registro de usuario
+document.querySelector('#register-form form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío por defecto del formulario
+    
+    
+    const ID_usuario = document.getElementById('ID_usuario').value;
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
+    const password = document.getElementById('password').value;
+    const direccion = document.getElementById('direccion').value;
+
+    const registerData = {
+        ID_usuario: ID_usuario,
+        nombre: nombre,
+        correo: correo,
+        password: password,
+        direccion: direccion    };
+
+    // Enviamos los datos al backend
+    fetch('http://localhost:3000/api/usuarios/usuarios', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // Aseguramos que sea JSON
+        },
+        body: JSON.stringify(registerData), // Convertimos los datos en JSON
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.text().then(text => { throw new Error(`Error ${response.status}: ${text}`) });
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.message === 'Registro exitoso') {
+            alert('Registro exitoso');
+            // Redirige al usuario a otra página o realiza otras acciones
+        } else {
+            alert(data.error || 'Error desconocido');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert(`Hubo un error: ${error.message}`);
+    });
+});
+
+
+    </script>
+</body>
+</html>

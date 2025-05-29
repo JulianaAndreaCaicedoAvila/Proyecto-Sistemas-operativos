@@ -15,7 +15,7 @@ public abstract class Movimiento {
         this.descripcion = descripcion;
     }
 /*
- *Los getters son para poder visualizar la info desde otra clase 
+ *Los getters son para poder visualizar la info desde otra clase c:\Users\Juliana\OneDrive\Escritorio\SOFTWARE 2\frontHTML\perfil.html
  */
     public double getValor() {
         return valor;
