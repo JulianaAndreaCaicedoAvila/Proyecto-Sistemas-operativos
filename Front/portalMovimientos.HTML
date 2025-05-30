@@ -4,78 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de movimientos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <a href="Principal.html">Inicio</a>
-             <a href="perfil.html">Perfil</a>
+            <a href="perfil.html">Perfil</a>
         </nav>
     </header>
     <main>
         <h2>Subir movimientos</h2>
         <div class="order-summary">
-            <h3>Movientos</h3>
-            <label for="card-number">Número de ingresos a digitar </label>
-            <input type="int" id="card-number" name="card-number" maxlength="16" required>
-
-            <label for="card-number">Número de egresos a digitar </label>
-            <input type="int" id="card-number" name="card-number" maxlength="16" required>
-         
-            <button type="submit" class="pay-btn">Confirmar </button>
-
-            <h1> Ingreso número: #   </h1>
-
-            <label for="card-holder">Descripción:</label>
-            <input type="text" id="card-holder" name="card-holder" required>
-            <label for="card-number">Valor: </label>
-            <input type="double" id="card-number" name="card-number" maxlength="16" required>
-            <button type="submit" class="pay-btn">Subir </button>
-
-
-            <h1> Egreso número: #   </h1>
-
-            <label for="card-holder">Descripción:</label>
-            <input type="text" id="card-holder" name="card-holder" required>
-            <label for="card-number">Valor: </label>
-            <input type="int" id="card-number" name="card-number" maxlength="16" required>
-            <button type="submit" class="pay-btn">Subir </button>
-
-
+            <h3>Movimientos</h3>
+            <form id="cantidadForm">
+                <label>Número de ingresos a digitar</label>
+                <input type="number" id="numIngresos" min="0" required>
+                <label>Número de egresos a digitar</label>
+                <input type="number" id="numEgresos" min="0" required>
+                <button type="submit" class="pay-btn">Confirmar</button>
+            </form>
+            <form id="movimientosForm" style="display:none;">
+                <div id="ingresosContainer"></div>
+                <div id="egresosContainer"></div>
+                <input type="text" id="descripcion" placeholder="Descripción general" class="input-mov">
+                <input type="text" id="ID_usuario" placeholder="ID usuario" class="input-mov">
+                <button type="submit" class="pay-btn">Subir movimientos</button>
+            </form>
         </div>
         <div class="order-summary">
-            <h3>Resumen de movientos</h3>
+            <h3>Resumen de movimientos</h3>
             <div class="order-item">
-                <span>Digitados: # </span>
-                <span>Ingresos </span>
-                <span>$100.00</span>
+                <span id="ingresosCount">Digitados: 0</span>
+                <span>Ingresos</span>
+                <span id="ingresosTotal">$0.00</span>
             </div>
             <div class="order-item">
-                <span>Digitados: # </span>
+                <span id="egresosCount">Digitados: 0</span>
                 <span>Egresos</span>
-                <span>$50.00</span>
+                <span id="egresosTotal">$0.00</span>
             </div>
             <div class="order-total">
-                <h3>Saldo final: $150.00</h3>
+                <h3 id="saldoFinal">Saldo final: $0.00</h3>
             </div>
+            <div id="resultado" class="resultado-mov"></div>
         </div>
-
-       
-              
-          
     </main>
-
     <footer>
         <p>&copy; 2025 Juliana Caicedo y Nicolas Fonseca</p>
     </footer>
 
-    
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+    let ingresos = [];
+    let egresos = [];
 
+    document.getElementById('cantidadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        ingresos = [];
+        egresos = [];
+        const numIngresos = parseInt(document.getElementById('numIngresos').value) || 0;
+        const numEgresos = parseInt(document.getElementById('numEgresos').value) || 0;
+        const ingresosContainer = document.getElementById('ingresosContainer');
+        const egresosContainer = document.getElementById('egresosContainer');
+        ingresosContainer.innerHTML = '<h4>Ingresos</h4>';
+        egresosContainer.innerHTML = '<h4>Egresos</h4>';
+
+        for(let i=0; i<numIngresos; i++) {
+            ingresosContainer.innerHTML += `
+                <div class="form-group">
+                    <label>Ingreso #${i+1} - Descripción:</label>
+                    <input type="text" class="form-control ingreso-desc" required>
+                    <label>Valor:</label>
+                    <input type="number" class="form-control ingreso-valor" min="0" required>
+                </div>
+            `;
+        }
+        for(let i=0; i<numEgresos; i++) {
+            egresosContainer.innerHTML += `
+                <div class="form-group">
+                    <label>Egreso #${i+1} - Descripción:</label>
+                    <input type="text" class="form-control egreso-desc" required>
+                    <label>Valor:</label>
+                    <input type="number" class="form-control egreso-valor" min="0" required>
+                </div>
+            `;
+        }
+        document.getElementById('movimientosForm').style.display = 'block';
+    });
+
+    document.getElementById('movimientosForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        ingresos = [];
+        egresos = [];
+        let totalIngresos = 0;
+        let totalEgresos = 0;
+
+        document.querySelectorAll('.ingreso-desc').forEach((input, idx) => {
+            const desc = input.value;
+            const valor = parseFloat(document.querySelectorAll('.ingreso-valor')[idx].value) || 0;
+            ingresos.push({ desc, valor });
+            totalIngresos += valor;
+        });
+        document.querySelectorAll('.egreso-desc').forEach((input, idx) => {
+            const desc = input.value;
+            const valor = parseFloat(document.querySelectorAll('.egreso-valor')[idx].value) || 0;
+            egresos.push({ desc, valor });
+            totalEgresos += valor;
+        });
+
+        // Actualiza resumen en pantalla
+        document.getElementById('ingresosCount').innerText = `Digitados: ${ingresos.length}`;
+        document.getElementById('egresosCount').innerText = `Digitados: ${egresos.length}`;
+        document.getElementById('ingresosTotal').innerText = `$${totalIngresos.toFixed(2)}`;
+        document.getElementById('egresosTotal').innerText = `$${totalEgresos.toFixed(2)}`;
+        document.getElementById('saldoFinal').innerText = `Saldo final: $${(totalIngresos-totalEgresos).toFixed(2)}`;
+
+        // Envía a la API
+        const descripcion = document.getElementById('descripcion').value;
+        const ID_usuario = document.getElementById('ID_usuario').value;
+
+        const res = await fetch('http://localhost:3000/api/finanzas/calcular', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ingresos, egresos, descripcion, ID_usuario })
+        });
+        const data = await res.json();
+        document.getElementById('resultado').innerText = JSON.stringify(data, null, 2);
+    });
+    </script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+{
+  "name": "SO",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Juliana Caicedo",
+  "license": "ISC",
+  "description": "Backend para SO ",
+  "dependencies": {
+    "SO": "file:",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.1",
+    "sequelize": "^6.37.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "index.js"
+  }
+}
